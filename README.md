@@ -117,6 +117,7 @@ pip install opencv-python numpy ultralytics
 python violationScript.py
 ```
 
+````
 ---
 
 # 🚦 Automatic Traffic Violation Detection System
