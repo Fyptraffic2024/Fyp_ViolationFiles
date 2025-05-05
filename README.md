@@ -119,4 +119,4 @@ python violationScript.py
 
 ---
 
-
+# 🚦 Automatic Traffic Violation Detection System
