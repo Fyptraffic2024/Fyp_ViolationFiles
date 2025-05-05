@@ -120,4 +120,95 @@ python violationScript.py
 ````
 ---
 
-# 🚦 Automatic Traffic Violation Detection System
+# 🎥 Video Violation Analysis System
+
+This project provides an interactive **Gradio interface** to review traffic violation clips extracted from analyzed videos. It displays original traffic videos, corresponding detected violation clips, and detailed violation metadata in a structured format.
+
+---
+
+## 🖥️ Features
+
+- 📂 **Video Selection:** Choose from uploaded original traffic videos.
+- 🧠 **Analyze Button:** Loads and displays extracted violation clips with thumbnails.
+- 🎞️ **Clip Playback:** View violation clips in an embedded player.
+- 📄 **JSON View:** See structured violation data including tracking info and frame details.
+
+---
+
+## 📁 Directory Structure
+
+```
+.
+├── videos/
+│   ├── original/             # Original full-length traffic videos (.mp4/.avi/.mov)
+│   ├── thumbnails/           # JPG thumbnails for each extracted clip
+│   ├── extracted_clips/      # Video clips containing detected violations
+│   └── violations/           # JSON files with structured violation data
+├── Interface.py                    # Main Gradio interface script
+└── README.md
+```
+
+---
+
+## ⚙️ How It Works
+
+1. **Dropdown Selector:** Lists available original videos.
+2. **Analyze Button:** Displays thumbnails of extracted clips from the selected video.
+3. **Gallery View:** Click any thumbnail to:
+   - Play the corresponding clip.
+   - View associated violation details from a `.json` file.
+
+---
+
+## 🧠 Tech Stack
+
+- **Python 3**
+- **Gradio**: UI framework for visualizing ML or data workflows
+- **OpenCV** (for pre-generated clips, not used directly in this interface)
+- **JSON**: Violation metadata is stored and displayed in JSON format
+
+---
+
+## 🚀 Getting Started
+
+### 🔧 Install Requirements
+
+```bash
+pip install gradio
+```
+
+### ▶️ Run the App
+
+```bash
+Interface.py
+```
+
+Gradio will launch the app locally (or generate a shareable link if `share=True` is set).
+
+---
+
+## 📂 Example Violation JSON Format
+
+```json
+{
+  "clip_index": 3,
+  "violations": [
+    {
+      "track_id": 5,
+      "frame_number": 164,
+      "time_seconds": 8.2,
+      "bbox": [1204, 560, 1320, 600]
+    }
+  ]
+}
+```
+
+---
+
+## 📌 Notes
+
+- Thumbnails must follow the naming format: `videoName_clipIndex.jpg`.
+- Extracted clips must be located in `videos/extracted_clips/` as `videoName_clipIndex.mp4`.
+- Violation records must match the clip names: `videoName_clipIndex.json`.
+
+---
